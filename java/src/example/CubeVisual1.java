@@ -12,6 +12,7 @@ public class CubeVisual1 extends Visual
 
     public void setup()
     {
+        
         startMinim();
         //startListening();
         loadAudio("heroplanet.mp3");
