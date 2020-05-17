@@ -1,6 +1,8 @@
 package c18470774;
 
 import c18470774.Cube;
+import processing.core.PImage;
+
 
 public class Scene extends Cilinder {
 
@@ -45,18 +47,19 @@ public class Scene extends Cilinder {
     
     public void draw()
     {
-    
         background(0);
 
         camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
         
-        if(count != 100 && key == ' '){
-            cube1();
-        }
-        else if(count >= 90){
+        //if(count != 100 && key == ' '){
+        //    cube1();
+        //}
+        //else if(count >= 90){
+
             cilinder();
             
-        }
+            
+        //}
         
 
     }

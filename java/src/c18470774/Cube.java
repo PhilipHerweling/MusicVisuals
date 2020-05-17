@@ -1,11 +1,13 @@
+
 package c18470774;
 import ie.tudublin.Visual;
 
-
+//creating cube class whihc is a child class of visual 
 public class Cube extends Visual{
 
     float smoothedBoxSize = 0;
     float smoothedBoxSize1 = 0;
+    float boxSize =0;
     
     int count = 0;
     int xcube2 = 0;
@@ -32,7 +34,7 @@ public class Cube extends Visual{
         stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
         translate(0, 0, -250);
                
-        float boxSize = 50 + (getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
+        boxSize = 50 + (getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
         smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
 
         calculateAverageAmplitude();
