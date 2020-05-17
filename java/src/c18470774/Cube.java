@@ -1,10 +1,13 @@
 
 package c18470774;
 import ie.tudublin.Visual;
+import processing.core.PApplet;
 
-//creating cube class whihc is a child class of visual 
-public class Cube extends Visual{
+//creating cube class whihc is a child class of Shapes 
+public class Cube {
 
+    Scene se;
+    Cilinder cc;
     float smoothedBoxSize = 0;
     float smoothedBoxSize1 = 0;
     float boxSize =0;
@@ -23,49 +26,52 @@ public class Cube extends Visual{
     int z = 0;
     int z1 = -600;
 
-    
+    public Cube(Scene se)
+    {
+        this.se = se; 
+    }
 
 
     public void calculate(){
 
-        calculateAverageAmplitude();
-        noFill();
-        lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        translate(0, 0, -250);
+        se.calculateAverageAmplitude();
+        se.noFill();
+        se.lights();
+        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        se.translate(0, 0, -250);
                
-        boxSize = 50 + (getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = lerp(smoothedBoxSize, boxSize, 0.2f);
+        boxSize = 50 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
+        smoothedBoxSize = se.lerp(smoothedBoxSize, boxSize, 0.2f);
 
-        calculateAverageAmplitude();
-        noFill();
-        lights();
-        stroke(map(getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        translate(0, 0, -250);
+        se.calculateAverageAmplitude();
+        se.noFill();
+        se.lights();
+        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
+        se.translate(0, 0, -250);
                
-        float boxSize1 = 30 + (getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize1 = lerp(smoothedBoxSize1, boxSize1, 0.2f);
+        float boxSize1 = 30 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
+        smoothedBoxSize1 = se.lerp(smoothedBoxSize1, boxSize1, 0.2f);
 
     }
-    
 
-    public void cube1(){
+
+    void cube1(){
 
         calculate();
 
         //left square
         if(z > -600)
         {
-            pushMatrix();
-            translate(xcube2, ycube2, z);
-            rotateY(angle2);
-            rotateX(angle2);
-            strokeWeight(5);
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(xcube2, ycube2, z);
+            se.rotateY(angle2);
+            se.rotateX(angle2);
+            se.strokeWeight(5);
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/3);
+            se.popMatrix();
         }
 
         if(xcube2 != -300){
@@ -81,16 +87,16 @@ public class Cube extends Visual{
         {
                 
             if(z > -600){
-                pushMatrix();
-                translate(xcube4, ycube2, z);
-                rotateY(angle2);
-                rotateX(angle2);
-                strokeWeight(5);
-                box(smoothedBoxSize);
-                box(smoothedBoxSize1);
-                strokeWeight(1);
-                sphere(smoothedBoxSize1/3);
-                popMatrix();
+                se.pushMatrix();
+                se.translate(xcube4, ycube2, z);
+                se.rotateY(angle2);
+                se.rotateX(angle2);
+                se.strokeWeight(5);
+                se.box(smoothedBoxSize);
+                se.box(smoothedBoxSize1);
+                se.strokeWeight(1);
+                se.sphere(smoothedBoxSize1/3);
+                se.popMatrix();
             }
 
             if (xcube5 != -300){
@@ -101,30 +107,30 @@ public class Cube extends Visual{
             
             
         //middle square
-        pushMatrix();
-        translate(0, 0, 0);
-        rotateY(angle);
-        rotateX(angle);
-        strokeWeight(5); 
-        box(smoothedBoxSize);
-        box(smoothedBoxSize1);
-        strokeWeight(1);
-        sphere(smoothedBoxSize1/ 3);
-        popMatrix();
+        se.pushMatrix();
+        se.translate(0, 0, 0);
+        se.rotateY(angle);
+        se.rotateX(angle);
+        se.strokeWeight(5); 
+        se.box(smoothedBoxSize);
+        se.box(smoothedBoxSize1);
+        se.strokeWeight(1);
+        se.sphere(smoothedBoxSize1/ 3);
+        se.popMatrix();
 
         //rightsquare
         if(z > -600)
         {
-            pushMatrix();
-            translate(xcube3, ycube3, z);
-            rotateY(angle2);
-            rotateX(angle2);
-            strokeWeight(5); 
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/ 3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(xcube3, ycube3, z);
+            se.rotateY(angle2);
+            se.rotateX(angle2);
+            se.strokeWeight(5); 
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/ 3);
+            se.popMatrix();
         }
 
         if(xcube3 != 300){
@@ -140,16 +146,16 @@ public class Cube extends Visual{
 
             if(z > -600)
             {
-                pushMatrix();
-                translate(xcube5, ycube3, z);
-                rotateY(angle2);
-                rotateX(angle2);
-                strokeWeight(5);
-                box(smoothedBoxSize);
-                box(smoothedBoxSize1);
-                strokeWeight(1);
-                sphere(smoothedBoxSize1/3);
-                popMatrix();
+                se.pushMatrix();
+                se.translate(xcube5, ycube3, z);
+                se.rotateY(angle2);
+                se.rotateX(angle2);
+                se.strokeWeight(5);
+                se.box(smoothedBoxSize);
+                se.box(smoothedBoxSize1);
+                se.strokeWeight(1);
+                se.sphere(smoothedBoxSize1/3);
+                se.popMatrix();
             }
 
             if (xcube4 != 300){
@@ -158,7 +164,7 @@ public class Cube extends Visual{
                 
         }
              
-        if(xcube4 == 300 && xcube5 == -300 && getSmoothedAmplitude() > 0.18){
+        if(xcube4 == 300 && xcube5 == -300 && se.getSmoothedAmplitude() > 0.18){
                 
             if(z!=-600){
                 z = z-2;
@@ -169,52 +175,52 @@ public class Cube extends Visual{
 
         if(z <= -590 ){
             //left
-            pushMatrix();
-            translate(xleft, 0, z1);
-            rotateY(angle);
-            rotateX(angle);
-            strokeWeight(5);
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(xleft, 0, z1);
+            se.rotateY(angle);
+            se.rotateX(angle);
+            se.strokeWeight(5);
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/3);
+            se.popMatrix();
 
             //right
-            pushMatrix();
-            translate(xright, 0, z1);
-            rotateY(angle);
-            rotateX(angle);
-            strokeWeight(5);
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(xright, 0, z1);
+            se.rotateY(angle);
+            se.rotateX(angle);
+            se.strokeWeight(5);
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/3);
+            se.popMatrix();
 
             //upper
-            pushMatrix();
-            translate(0, yupper, z1);
-            rotateY(angle);
-            rotateX(angle);
-            strokeWeight(5);
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(0, yupper, z1);
+            se.rotateY(angle);
+            se.rotateX(angle);
+            se.strokeWeight(5);
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/3);
+            se.popMatrix();
 
             //lower
-            pushMatrix();
-            translate(0, ylower, z1);
-            rotateY(angle);
-            rotateX(angle);
-            strokeWeight(5);
-            box(smoothedBoxSize);
-            box(smoothedBoxSize1);
-            strokeWeight(1);
-            sphere(smoothedBoxSize1/3);
-            popMatrix();
+            se.pushMatrix();
+            se.translate(0, ylower, z1);
+            se.rotateY(angle);
+            se.rotateX(angle);
+            se.strokeWeight(5);
+            se.box(smoothedBoxSize);
+            se.box(smoothedBoxSize1);
+            se.strokeWeight(1);
+            se.sphere(smoothedBoxSize1/3);
+            se.popMatrix();
 
 
             if(z1 != 0){
@@ -251,4 +257,5 @@ public class Cube extends Visual{
     }
     float angle = 0;
     float angle2 = 0;
+    
 }

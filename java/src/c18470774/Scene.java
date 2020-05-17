@@ -1,12 +1,16 @@
 package c18470774;
+import ie.tudublin.Visual;
+import ie.tudublin.*;
+import processing.core.*;
 
-import c18470774.Cube;
-import processing.core.PImage;
 
 
-public class Scene extends Cilinder {
+public class Scene extends Visual {
 
-    int x =0;
+    Cilinder cc;
+    Cube cb;
+
+
 
     public void settings()
     {
@@ -39,8 +43,10 @@ public class Scene extends Cilinder {
         //getAp().play();
         //startListening(); 
 
-        
-        
+        cc = new Cilinder(this);
+        cb = new Cube(this);
+
+
     }
 
 
@@ -51,13 +57,13 @@ public class Scene extends Cilinder {
 
         camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
         
-        if(count != 100 && key == ' '){
-            cube1();
-        }
-        else if(count >= 90){
+        if(cb.count != 100 && key == ' '){
 
-            cilinder();
-            
+            cb.cube1();
+        }
+        else if(cb.count >= 90){
+
+            cc.cilinder();
             
         }
         
