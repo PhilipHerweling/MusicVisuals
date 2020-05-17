@@ -51,15 +51,15 @@ public class Scene extends Cilinder {
 
         camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
         
-        //if(count != 100 && key == ' '){
-        //    cube1();
-        //}
-        //else if(count >= 90){
+        if(count != 100 && key == ' '){
+            cube1();
+        }
+        else if(count >= 90){
 
             cilinder();
             
             
-        //}
+        }
         
 
     }
