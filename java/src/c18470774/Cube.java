@@ -4,14 +4,13 @@ import ie.tudublin.Visual;
 import processing.core.PApplet;
 
 //creating cube class whihc is a child class of Shapes 
-public class Cube {
+public class Cube extends Shapes{
 
-    Scene se;
-    Cilinder cc;
-    float smoothedBoxSize = 0;
-    float smoothedBoxSize1 = 0;
-    float boxSize =0;
-    
+
+    public Cube(Scene se) {
+        super(se);
+    }
+
     int count = 0;
     int xcube2 = 0;
     int xcube3 = 0;
@@ -25,34 +24,6 @@ public class Cube {
     int ycube3 = 0;
     int z = 0;
     int z1 = -600;
-
-    public Cube(Scene se)
-    {
-        this.se = se; 
-    }
-
-
-    public void calculate(){
-
-        se.calculateAverageAmplitude();
-        se.noFill();
-        se.lights();
-        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        se.translate(0, 0, -250);
-               
-        boxSize = 50 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = se.lerp(smoothedBoxSize, boxSize, 0.2f);
-
-        se.calculateAverageAmplitude();
-        se.noFill();
-        se.lights();
-        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        se.translate(0, 0, -250);
-               
-        float boxSize1 = 30 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize1 = se.lerp(smoothedBoxSize1, boxSize1, 0.2f);
-
-    }
 
 
     void cube1(){
@@ -242,6 +213,7 @@ public class Cube {
                 }
                 
             }
+            
             if(xleft == 0){
                 if(count!=100){
                     count++;
@@ -250,12 +222,9 @@ public class Cube {
 
         }            
 
-        
-
         angle += 0.02f;
         angle2 += 0.04f;
     }
-    float angle = 0;
-    float angle2 = 0;
+    
     
 }

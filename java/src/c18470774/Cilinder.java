@@ -4,43 +4,15 @@ import processing.core.*;
 
 
 //creating cilinder class which is a child class of Shapes
-public class Cilinder {
+public class Cilinder extends Shapes{
 
-    Scene se;
-    float smoothedBoxSize = 0;
-    float smoothedBoxSize1 = 0;
-    float boxSize =0;
-
-    public Cilinder(Scene se)
-    {
-        this.se = se; 
-    }
- 
-    public void calculate(){
-
-        se.calculateAverageAmplitude();
-        se.noFill();
-        se.lights();
-        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        se.translate(0, 0, -250);
-               
-        boxSize = 50 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize = se.lerp(smoothedBoxSize, boxSize, 0.2f);
-
-        se.calculateAverageAmplitude();
-        se.noFill();
-        se.lights();
-        se.stroke(se.map(se.getSmoothedAmplitude(), 0, 1, 0, 255), 255, 255);
-        se.translate(0, 0, -250);
-               
-        float boxSize1 = 30 + (se.getAmplitude() * 200);//map(average, 0, 1, 100, 400); 
-        smoothedBoxSize1 = se.lerp(smoothedBoxSize1, boxSize1, 0.2f);
-
-    }
-    
     
 
-    public void cilinder(){
+    public Cilinder(Scene se) {
+        super(se);
+    }
+
+    public void cilinder() {
 
         calculate();
 
@@ -123,11 +95,10 @@ public class Cilinder {
         }
         else{
         
-        angle2 -= 0.04f;
+            angle2 -= 0.04f;
+
         }
         angle += 0.04f;
     }
-    float angle = 0;
-    float angle2 = 0;
     
 }
