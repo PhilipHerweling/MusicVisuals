@@ -4,11 +4,13 @@ import c18470774.Cube;
 
 public class Scene extends Cilinder {
 
+    int x =0;
+
     public void settings()
     {
         size(800, 800, P3D);
         println("CWD: " + System.getProperty("user.dir"));
-        //fullScreen(P3D, SPAN);
+        fullScreen(P3D, SPAN);
     }
 
     public void keyPressed()
@@ -45,13 +47,15 @@ public class Scene extends Cilinder {
     {
     
         background(0);
-        camera(0, 0, 0, 0, 0, -1, 0, 1, 0);
 
+        camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
+        
         if(count != 100 && key == ' '){
             cube1();
         }
         else if(count >= 90){
             cilinder();
+            
         }
         
 

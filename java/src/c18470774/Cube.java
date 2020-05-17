@@ -6,19 +6,22 @@ public class Cube extends Visual{
 
     float smoothedBoxSize = 0;
     float smoothedBoxSize1 = 0;
+    
     int count = 0;
     int xcube2 = 0;
     int xcube3 = 0;
-    int xcube4 = -200;
-    int xcube5 = 200;
-    int xleft = -200;
-    int xright = 200;
+    int xcube4 = -300;
+    int xcube5 = 300;
+    int xleft = -300;
+    int xright = 300;
     int ylower = 200;
     int yupper = -200;
     int ycube2 = 0;
     int ycube3 = 0;
     int z = 0;
     int z1 = -600;
+
+    
 
 
     public void calculate(){
@@ -63,7 +66,7 @@ public class Cube extends Visual{
             popMatrix();
         }
 
-        if(xcube2!= -200){
+        if(xcube2 != -300){
             xcube2--;
         }
 
@@ -72,7 +75,7 @@ public class Cube extends Visual{
         
         }
 
-        if(ycube2 == -200 && xcube2 == -200)
+        if(ycube2 == -200 && xcube2 == -300)
         {
                 
             if(z > -600){
@@ -88,7 +91,7 @@ public class Cube extends Visual{
                 popMatrix();
             }
 
-            if (xcube5 != -200){
+            if (xcube5 != -300){
                 xcube5--;
             }
                 
@@ -122,7 +125,7 @@ public class Cube extends Visual{
             popMatrix();
         }
 
-        if(xcube3 != 200){
+        if(xcube3 != 300){
             xcube3++;
         }
             
@@ -130,7 +133,7 @@ public class Cube extends Visual{
             ycube3++;
         }
 
-        if(ycube3 == 200 && xcube3 == 200)
+        if(ycube3 == 200 && xcube3 == 300)
         {
 
             if(z > -600)
@@ -147,13 +150,13 @@ public class Cube extends Visual{
                 popMatrix();
             }
 
-            if (xcube4 != 200){
+            if (xcube4 != 300){
                 xcube4++;
             }
                 
         }
              
-        if(xcube4 == 200 && xcube5 == -200 && getSmoothedAmplitude() > 0.18){
+        if(xcube4 == 300 && xcube5 == -300 && getSmoothedAmplitude() > 0.18){
                 
             if(z!=-600){
                 z = z-2;
