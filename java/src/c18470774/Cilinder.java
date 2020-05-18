@@ -6,6 +6,8 @@ import processing.core.*;
 //creating cilinder class which is a child class of Shapes
 public class Cilinder extends Shapes{
 
+    int sample = 0;
+
     
     //calling constructor in 
     //the super class
@@ -118,6 +120,10 @@ public class Cilinder extends Shapes{
         }
         //incrementing angle
         angle += 0.04f;
+
+        if (sample != 2000){
+            sample++;
+        }
     }
     
 }

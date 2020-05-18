@@ -10,7 +10,7 @@ public class Scene extends Visual {
     //creating objects
     Cilinder cc;
     Cube cb;
-    WaveForm wf;
+    Spiral sp;
 
 
     //used to set screen size
@@ -42,13 +42,13 @@ public class Scene extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("gbBaseBoost.mp3");
+        loadAudio("greenarmy.mp3");
         //getAp().play();
         //startListening(); 
 
         cc = new Cilinder(this);
         cb = new Cube(this);
-        wf = new WaveForm(this);
+        sp = new Spiral(this);
 
 
     }
@@ -57,6 +57,8 @@ public class Scene extends Visual {
     
     public void draw()
     {
+        
+        
         //setting background to black
         background(0);
 
@@ -67,16 +69,23 @@ public class Scene extends Visual {
         //these if and else if satements
         //are used to switch between 
         //scenes
-        if(cb.count != 100 && key == ' '){
+        //if(cb.count < 100 && key == ' '){
 
-            cb.render();
-        }
-        else if(cb.count >= 90){
+        //    cb.render();
+        //}
+        //else if(cb.count > 90  && cb.count <=101){
 
-            cc.render();
+            //cc.render();
+            //if(cc.sample == 2000){
+            //    cb.count = cb.count+5;
+            //}
             
-            wf.wave();
-        }
+            
+        //}
+
+        //else if(cc.sample >= 2000){
+            sp.render();
+        //}
         
 
     }

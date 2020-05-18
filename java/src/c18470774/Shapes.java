@@ -25,6 +25,7 @@ public class Shapes {
     //cilinder, cube and spiral
     public void calculate(){
 
+
         //Calling functions which allows me to calculate the sizes of the cubes 
         //and other shapes that i make which constantly change is size with the constant
         //ampiltude changes from high to low
