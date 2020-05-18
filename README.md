@@ -11,6 +11,9 @@ Student Number:
 - There is an example visualiser called MyVisual in the example package
 - Check out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet
 
+# Link to youtube video of my project
+https://www.youtube.com/watch?v=xiLT-I-rU_w
+
 # Description of the assignment
 For this assignment i made out a plan before i started and wanted to make three distinct scenes. I mean by this 
 that i wanted three render methods in differnt classes which were called one after the other. The first scene/ render method is 
@@ -25,6 +28,7 @@ which changes colours to the music.
 2. Make sure that main calls the class Scene(Main should already be calling Scene)
 3. run the main method
 4. press space bar and then everything will commence and you dont have to do anything else
+5. press link to veiw youtube video https://www.youtube.com/watch?v=xiLT-I-rU_w
 
 # How it works
 I have 5 classes. The Scene class is where the settings, setup and draw method is and is where i call the render methods from 

@@ -11,7 +11,6 @@ public class Scene extends Visual {
     Cilinder cc;
     Cube cb;
     Spiral sp;
-    Stars st;
     Shapes sh;
 
 
@@ -51,7 +50,6 @@ public class Scene extends Visual {
         cc = new Cilinder(this);
         cb = new Cube(this);
         sp = new Spiral(this);
-        st = new Stars(this);
         sh = new Shapes(this);
 
 
