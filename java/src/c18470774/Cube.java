@@ -30,7 +30,6 @@ public class Cube extends Shapes{
 
     void render(){
 
-        //calling calculate from perant class shapes
         calculate();
 
         //left cube being created here

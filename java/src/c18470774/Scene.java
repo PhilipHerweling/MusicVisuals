@@ -11,6 +11,8 @@ public class Scene extends Visual {
     Cilinder cc;
     Cube cb;
     Spiral sp;
+    Stars st;
+    Shapes sh;
 
 
     //used to set screen size
@@ -42,13 +44,15 @@ public class Scene extends Visual {
         setFrameSize(256);
 
         startMinim();
-        loadAudio("greenarmy.mp3");
+        loadAudio("gbBaseBoost.mp3");
         //getAp().play();
         //startListening(); 
 
         cc = new Cilinder(this);
         cb = new Cube(this);
         sp = new Spiral(this);
+        st = new Stars(this);
+        sh = new Shapes(this);
 
 
     }
@@ -66,26 +70,34 @@ public class Scene extends Visual {
         camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
 
         
+        
         //these if and else if satements
         //are used to switch between 
         //scenes
-        //if(cb.count < 100 && key == ' '){
+        if(cb.count < 100 && key == ' '){
+            
+            cb.render();
+            
+        }
+        if(cb.count > 90  && cb.count <=101){
 
-        //    cb.render();
-        //}
-        //else if(cb.count > 90  && cb.count <=101){
-
-            //cc.render();
-            //if(cc.sample == 2000){
-            //    cb.count = cb.count+5;
-            //}
+            cc.render();
+            
+            if(cc.sample == 3000){
+                cb.count = cb.count+5;
+            }
             
             
-        //}
+        }
 
-        //else if(cc.sample >= 2000){
+        if(cc.sample >= 3000){
+            
+            if(cc.sample!= getSampleRate()){
             sp.render();
-        //}
+            cc.sample++;
+            
+        }
+    }
         
 
     }
