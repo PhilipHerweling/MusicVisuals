@@ -7,11 +7,13 @@ import processing.core.*;
 
 public class Scene extends Visual {
 
+    //creating objects
     Cilinder cc;
     Cube cb;
+    WaveForm wf;
 
 
-
+    //used to set screen size
     public void settings()
     {
         size(800, 800, P3D);
@@ -19,6 +21,7 @@ public class Scene extends Visual {
         fullScreen(P3D, SPAN);
     }
 
+    //when space key is hit music plays
     public void keyPressed()
     {
         if (key == ' ')
@@ -45,6 +48,7 @@ public class Scene extends Visual {
 
         cc = new Cilinder(this);
         cb = new Cube(this);
+        wf = new WaveForm(this);
 
 
     }
@@ -53,18 +57,25 @@ public class Scene extends Visual {
     
     public void draw()
     {
+        //setting background to black
         background(0);
 
+        //setting up camera angle
         camera(0, 0, 0, 0, 0, -1, 0, 2, 0);
+
         
+        //these if and else if satements
+        //are used to switch between 
+        //scenes
         if(cb.count != 100 && key == ' '){
 
-            cb.cube1();
+            cb.render();
         }
         else if(cb.count >= 90){
 
-            cc.cilinder();
+            cc.render();
             
+            wf.wave();
         }
         
 

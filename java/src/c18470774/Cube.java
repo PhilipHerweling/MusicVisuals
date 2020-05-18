@@ -7,10 +7,12 @@ import processing.core.PApplet;
 public class Cube extends Shapes{
 
 
+    //constructor calling the super class 
     public Cube(Scene se) {
         super(se);
     }
 
+    //initialsing variables
     int count = 0;
     int xcube2 = 0;
     int xcube3 = 0;
@@ -26,11 +28,14 @@ public class Cube extends Shapes{
     int z1 = -600;
 
 
-    void cube1(){
+    void render(){
 
+        //calling calculate from perant class shapes
         calculate();
 
-        //left square
+        //left cube being created here
+        //this will appear until its a certain 
+        //depth on the screen
         if(z > -600)
         {
             se.pushMatrix();
@@ -45,6 +50,8 @@ public class Cube extends Shapes{
             se.popMatrix();
         }
 
+        //these if statements move
+        //the cube
         if(xcube2 != -300){
             xcube2--;
         }
@@ -56,7 +63,9 @@ public class Cube extends Shapes{
 
         if(ycube2 == -200 && xcube2 == -300)
         {
-                
+            //this creates a new cube which will 
+            //appear from the top left cube and 
+            //move accross the screen    
             if(z > -600){
                 se.pushMatrix();
                 se.translate(xcube4, ycube2, z);
@@ -77,7 +86,8 @@ public class Cube extends Shapes{
         }
             
             
-        //middle square
+        //middle cube
+        //this cube never changes
         se.pushMatrix();
         se.translate(0, 0, 0);
         se.rotateY(angle);
@@ -89,7 +99,8 @@ public class Cube extends Shapes{
         se.sphere(smoothedBoxSize1/ 3);
         se.popMatrix();
 
-        //rightsquare
+        //right cube gets made until its
+        //to far in the depth 
         if(z > -600)
         {
             se.pushMatrix();
@@ -104,6 +115,8 @@ public class Cube extends Shapes{
             se.popMatrix();
         }
 
+        //these if statements move the square from the center
+        //of the screen to the bottom right
         if(xcube3 != 300){
             xcube3++;
         }
@@ -112,6 +125,9 @@ public class Cube extends Shapes{
             ycube3++;
         }
 
+        //when the cube reaches the bottom right
+        //then a new cube is made on top of it and slowly 
+        //moves to the bottom left of the screen
         if(ycube3 == 200 && xcube3 == 300)
         {
 
@@ -134,7 +150,10 @@ public class Cube extends Shapes{
             }
                 
         }
-             
+        //when all four squares are in there corners and the ampiltude is 
+        //above .18 then the z varaible is decremented by 2. this makes.
+        //the four squares go back into the depths untill z > 600 
+        //them the four cubes disappear      
         if(xcube4 == 300 && xcube5 == -300 && se.getSmoothedAmplitude() > 0.18){
                 
             if(z!=-600){
@@ -144,8 +163,10 @@ public class Cube extends Shapes{
                 
         }
 
+        //when the four corner cubes disappear
+        // 4 new cubes are created 
         if(z <= -590 ){
-            //left
+            //left cube
             se.pushMatrix();
             se.translate(xleft, 0, z1);
             se.rotateY(angle);
@@ -157,7 +178,7 @@ public class Cube extends Shapes{
             se.sphere(smoothedBoxSize1/3);
             se.popMatrix();
 
-            //right
+            //right cube
             se.pushMatrix();
             se.translate(xright, 0, z1);
             se.rotateY(angle);
@@ -169,7 +190,7 @@ public class Cube extends Shapes{
             se.sphere(smoothedBoxSize1/3);
             se.popMatrix();
 
-            //upper
+            //upper cube
             se.pushMatrix();
             se.translate(0, yupper, z1);
             se.rotateY(angle);
@@ -181,7 +202,7 @@ public class Cube extends Shapes{
             se.sphere(smoothedBoxSize1/3);
             se.popMatrix();
 
-            //lower
+            //lower cube
             se.pushMatrix();
             se.translate(0, ylower, z1);
             se.rotateY(angle);
@@ -194,10 +215,14 @@ public class Cube extends Shapes{
             se.popMatrix();
 
 
+            //this brings the cubes from the background to the four ground
             if(z1 != 0){
                 z1 = z1 +2;
             }
 
+            //when the cubes are at the 
+            //forground they then move towards the middle cube
+            //and for one
             if(z1 == 0){
                 if(xright != 0){
                     xright--;
@@ -214,6 +239,10 @@ public class Cube extends Shapes{
                 
             }
             
+            //this is used for timing purposes
+            // when all four cubes meet in the middle
+            //i want them to stay as one cube for a few seconds and then
+            //a new method with differnt shapes is called
             if(xleft == 0){
                 if(count!=100){
                     count++;
@@ -222,6 +251,8 @@ public class Cube extends Shapes{
 
         }            
 
+        //incrementing angles
+        //so that the cubes spin
         angle += 0.02f;
         angle2 += 0.04f;
     }

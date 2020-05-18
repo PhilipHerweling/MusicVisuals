@@ -7,15 +7,20 @@ import processing.core.*;
 public class Cilinder extends Shapes{
 
     
-
+    //calling constructor in 
+    //the super class
     public Cilinder(Scene se) {
         super(se);
     }
 
-    public void cilinder() {
+    //new render method
+    public void render() {
 
+        //calling calculate method from the shapes class
         calculate();
 
+        //creating sphere and positioning it 
+        //in the middle of the screen
         se.pushMatrix();
         se.translate(0,0,0);
         se.rotateY(angle);
@@ -24,6 +29,8 @@ public class Cilinder extends Shapes{
         se.sphere(smoothedBoxSize1);
         se.popMatrix();
 
+        //creating an ellipse which 
+        //orbits the sphere around the y axis
         se.pushMatrix();
         se.translate(0,0,0);
         se.strokeWeight(10);
@@ -31,6 +38,8 @@ public class Cilinder extends Shapes{
         se.ellipse(0,0,boxSize+100,boxSize+100);
         se.popMatrix();
 
+        //creating another ellipse which 
+        //orbits the sphere around the x axis
         se.pushMatrix();
         se.translate(0,0,0);
         se.strokeWeight(10);
@@ -38,15 +47,17 @@ public class Cilinder extends Shapes{
         se.ellipse(0,0,boxSize+150,boxSize+150);
         se.popMatrix();
 
+        //creating another ellipse which 
+        //doesnt orbit the sphere
         se.pushMatrix();
         se.translate(0,0,0);
         se.strokeWeight(10);
-        se.rotateZ(angle);
         se.ellipse(0,0,boxSize+200,boxSize+200);
         se.popMatrix();
 
 
-        
+        //this is where i make little 
+        //cubes which give an effect of colourful stars
         for(int j = 0; j<=50;j++){
             se.pushMatrix();
             se.translate(se.random(-500,500), se.random(-300,300), se.random(0,-600));
@@ -56,7 +67,13 @@ public class Cilinder extends Shapes{
         
             
         }
-        
+
+        //these if statements and else if 
+        //statements are used to add
+        //another ellipse around the sphere 
+        //when the ampiltude gets bigger
+        //and stops the two inner ellipses from orbiting 
+        //around the sphere
         if(se.getSmoothedAmplitude() > 0.13){
             se.pushMatrix();
             se.translate(0,0,0);
@@ -95,9 +112,11 @@ public class Cilinder extends Shapes{
         }
         else{
         
+            //decrementing angle2
             angle2 -= 0.04f;
 
         }
+        //incrementing angle
         angle += 0.04f;
     }
     

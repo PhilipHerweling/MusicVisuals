@@ -2,6 +2,7 @@ package ie.tudublin;
 
 import example.CubeVisual1;
 import example.MyVisual;
+import example.AudioBandsVisual;
 import example.CubeVisual;
 import example.WaveForm;
 import c18470774.Scene;
